@@ -23,9 +23,11 @@ client.on("connect", (connection) => {
     }
   });
 
+
   function sendNumber() {
     if (connection.connected) {
       const number = Math.round(Math.random() * 0xffffff);
+
       connection.sendUTF(number.toString());
       // setTimeout(sendNumber, 1000);
     }
