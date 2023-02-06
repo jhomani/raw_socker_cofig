@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gross Websocker </title>
+</head>
+<body>
+
+<script>
+  const socket  = new WebSocket('ws://172.24.79.89:3015', 'echo-protocol');
+
+  socket.onopen = event => {
+    console.log('Open: ', event);
+  }
+
+  socket.onmessage = message => {
+    console.log('Message: ', message.data);
+  }
+
+  socket.onclose = (reason) => {
+    console.log('Close: ', reason);
+  }
+
+  // socket.on("connect", (connection) => { console.log("WebSocket Client Connected: ", connection);
+
+    // connection.on("error", (error) => {
+    //   console.log("Connection Error: " + error.toString());
+    // });
+
+    // connection.on("close", () => {
+    //   console.log("echo-protocol Connection Closed");
+    // });
+
+    // connection.on("message", (message) => {
+    //   if (message.type === "utf8") {
+    //     console.log("Received: '" + message.utf8Data + "'");
+    //   }
+    // });
+
+    // function sendNumber() {
+    //   if (connection.connected) {
+    //     const number = Math.round(Math.random() * 0xffffff);
+    //     connection.sendUTF(number.toString());
+    //     setTimeout(sendNumber, 1000);
+    //   }
+    // }
+
+    // sendNumber();
+  // });
+
+</script>
+</body>
+</html>
