@@ -38,13 +38,16 @@ wsServer.on("request", function (request) {
   }
 
   // console.log(request);
-
   console.log('Num connections: ', wsServer.connections.length)
+  const protocol = request.httpRequest.headers['sec-websocket-protocol']; 
 
-  const connection = request.accept(null, request.origin);
+  console.log(protocol);
+
+  const connection = request.accept(protocol, request.origin);
   // const connection = request.accept("echo-protocol", request.origin);
 
   console.log(new Date() + " Connection accepted.");
+
 
   connection.on("message", (message) => {
     // wsServer.broadcastUTF(message.utf8Data); 
